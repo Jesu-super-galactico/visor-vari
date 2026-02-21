@@ -11,6 +11,7 @@ from visor_vari.mas_bajo_nivel.see import refer_0 # la refer estandar.
 from visor_vari.mas_bajo_nivel.datos import verifico
 from visor_vari.mas_bajo_nivel.datos import coloco # para el nombre de la ventana.
 from visor_vari.la_ventana import ver_registro
+import time
 
 if True: # todo el resto de refer_
     from visor_vari.mas_bajo_nivel.see import refer_1
@@ -59,46 +60,64 @@ def verificacion_normal():
 
 def ejecutando_gentil_para_visualizar_variables(el_tipo_es_1= False):
     
+    # creando objeto... ventana...
+    if coloco.posible_tk == None:
+        import tkinter as tk
+        
+        ventana= tk.Tk()
+    else:
+        ventana= coloco.posible_tk.Toplevel()
+    
+    # configurandolo
+    ventana.resizable(0,0)
+    alcon= None
+    
+    # comprobando las dispocisiones.
     enemigo= verificacion_normal()
-
     if enemigo == False:
-        ver_registro(refer_0)
+        ver_registro(refer_0, ventana)
     
     else:
         if el_tipo_es_1 == True: # para que solo trabaje con gentil()... vacio.
         
             if verifico.estado_refer_0 == True: # de todas formas este se ejecuta.
-                ver_registro(refer_0)
+                ver_registro(refer_0, ventana)
             if verifico.estado_refer_1 == True:
                 coloco.nombre_de_ventana= "Referencia_1"
-                ver_registro(refer_1)
+                ver_registro(refer_1, ventana)
             if verifico.estado_refer_2 == True:
                 coloco.nombre_de_ventana= "Referencia_2"
-                ver_registro(refer_2)
+                ver_registro(refer_2, ventana)
             if verifico.estado_refer_3 == True:
                 coloco.nombre_de_ventana= "Referencia_3"
-                ver_registro(refer_3)
+                ver_registro(refer_3, ventana)
             if verifico.estado_refer_4 == True:
                 coloco.nombre_de_ventana= "Referencia_4"
-                ver_registro(refer_4)
+                ver_registro(refer_4, ventana)
             if verifico.estado_refer_5 == True:
                 coloco.nombre_de_ventana= "Referencia_5"
-                ver_registro(refer_5)
+                ver_registro(refer_5, ventana)
             if verifico.estado_refer_6 == True:
                 coloco.nombre_de_ventana= "Referencia_6"
-                ver_registro(refer_6)
+                ver_registro(refer_6, ventana)
             if verifico.estado_refer_7 == True:
                 coloco.nombre_de_ventana= "Referencia_7"
-                ver_registro(refer_7)
+                ver_registro(refer_7, ventana)
             if verifico.estado_refer_8 == True:
                 coloco.nombre_de_ventana= "Referencia_8"
-                ver_registro(refer_8)
+                ver_registro(refer_8, ventana)
             if verifico.estado_refer_9 == True:
                 coloco.nombre_de_ventana= "Referencia_9"
-                ver_registro(refer_9)
+                ver_registro(refer_9, ventana)
                 
             coloco.nombre_de_ventana= "Referencia_0"
-            
+
+    if coloco.posible_tk == None:
+        ventana.mainloop()
+    else:
+        if coloco.pausado == True:
+            ventana.wait_window() # Espera hasta que la ventana se cierre
+
 "==============================="
 #   Entradas
 ################################

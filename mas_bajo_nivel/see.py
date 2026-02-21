@@ -424,22 +424,19 @@ class Clear_tabla:
         
         if self.all == None:
             
-            # bloque A
             if self.num == None:
                 self.lateral= 10
-                
-            elif (-1 < self.num) and (self.num < 9): # por referencia.
-                pass
-            
-            self.bidiverso()
+                        
+            if (-1 < self.num) and (self.num < 9):  # para borrar uno especifico.
+                self.bidiverso()
+            elif self.num == 10:                    # para borrar todos.
+                self.bidiverso()
         
-        elif  (self.all == "supe") or (self.all == "Supe") or (self.all == "SUPE"):
+        elif  (self.all == "super") or (self.all == "Super") or (self.all == "SUPER") or (self.all == "s") or (self.all == "S"):
             
-            if self.num != None:
-                if (-1 < self.num) and (self.num < 9):
-                    
-                    # bloque B
-                    self.serial()
+            if self.num != None:    # ''supe'' siendo un numero...
+                if (-1 < self.num) and (self.num < 9): # del 0 al 8.
+                    self.serial()                   # para borrar hasta ese numero.
 
 limpieza= Clear_tabla()
 
@@ -447,12 +444,15 @@ limpieza= Clear_tabla()
 #   Deside cuales objetos se van a borrar.
 ################################
 
-def aborrar(lista, numero, all):
+def aborrar(numero, all, lista):
     
-    if (lista == None) and (numero == None) and (all == None):
-        limpieza.limpiar(refer_0, numero, all)
+    if (numero == None) and (all == None) and (lista == None):
+        limpieza.limpiar(refer_0, numero, all) # esto borra todo (del refer_0)
         
-    if lista != None:
+    if (numero != None) and (all != None) and (lista == None):
+        limpieza.limpiar(refer_0, numero, all) # actua normalmente para refer_0
+        
+    if lista != None: # se replica 'numero' y 'all' en todos los refers.
         if 0 in lista:
             limpieza.limpiar(refer_0, numero, all)
         if 1 in lista:

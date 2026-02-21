@@ -27,7 +27,6 @@ class Cofiguracion_local:
     
     def __init__(self):
         
-        self.pausado= True
         self.tipo_de_ejecucion= 1
         self.numero_a_ejecutar= 0 # hace las veces de ciclo (que utiliza 'ultimate')
         
@@ -98,10 +97,10 @@ def gentil(numero= None, pausado= True):
         if configurate.numero_a_ejecutar == 0: # si no se ha entrado ni en en_cadena ni en faseypulso
             
             comienzo.gentil_normal= True
-            configurate.pausado= pausado # solo se modifica con gentil, si no se ha entrado ni en en_cadena ni en faseypulso.
+            coloco.pausado= pausado # solo se modifica con gentil, si no se ha entrado ni en en_cadena ni en faseypulso.
             comienzo.se_ha_comprobado_1= True
                     
-        if configurate.pausado == True:
+        if (coloco.pausado == True) or (coloco.posible_tk != None):
             
             if (numero == None) and (configurate.numero_a_ejecutar == 0):
                 "ejecuto gentil simplemente" # para cuando gentil este vacio.
@@ -175,7 +174,7 @@ def gentil(numero= None, pausado= True):
                             iniciar_visor_vari(False, 3)
                         
         else:
-            print("en pausado")
+            print("sin pausar")
             # de aqui va para 'iniciar_visor_vari_en_hilo'.
             pass
         
@@ -190,12 +189,12 @@ def preparo_configuracion(segun):
     configurate.tipo_de_ejecucion= segun
     #print("configurate.tipo_de_ejecucion: ", configurate.tipo_de_ejecucion)
     
-def en_cadena(numero= 0, lista= [], pausado= True):
+def encadena(numero= 0, lista= [], pausado= True):
     canal= compruebo_inicio()
     
     if (canal == True) or (comienzo.se_ha_comprobado_3 == True):
         comienzo.en_cadena= True
-        configurate.pausado= pausado
+        coloco.pausado= pausado
         comienzo.se_ha_comprobado_3= True
         
         data.lista_de_entrada_en_cadena= lista
@@ -209,7 +208,7 @@ def faseypulso(bajada= False, lista= [], pausado= True):
     
     if (canal == True) or (comienzo.se_ha_comprobado_2 == True):
         comienzo.pulso_y_fase= True
-        configurate.pausado= pausado
+        coloco.pausado= pausado
         comienzo.se_ha_comprobado_2= True
         
         data.bajada_de_entrada_faseypulso= bajada
@@ -220,15 +219,54 @@ def faseypulso(bajada= False, lista= [], pausado= True):
 def ultimate():
     if configurate.tipo_de_ejecucion == 3:
         
-        solo_detiene= input("Presiona Enter para continuar... ")
+        input("Presiona Enter para continuar... (se encuentra en visor-vari)")
         coloco.ola_numero += 1
         configurate.aumento_para_modo_faseypulso= 0
     
 "==============================="
 
-def borrar_todo(lista= None, numero= None, all= None):
-    aborrar(lista, num= numero, todos= all)
+def borratodo(numero= None, limit= None, lista= None):
+    aborrar(numero, limit, lista, )
     
-def nuevas_refers(lista):
-    nueva_confg(lista)
+def guia(tkin= None, reajusteola= False, lista= None):
+    
+    new_lista= [0]
+    coloco.posible_tk= tkin
+    
+    if lista == None:
+        if isinstance(reajusteola, list):
+            
+            new_lista= reajusteola
+            coloco.ola_reajustada= False
+            
+            nueva_confg(new_lista)
+            
+        if isinstance(reajusteola, bool):
+            
+            coloco.ola_reajustada= reajusteola
+            nueva_confg(new_lista)
+    
+    eslist= False
+    if isinstance(lista, list):
+        eslist= True
+
+    if (lista != None) and (eslist == True):
+        a_saber= False
+        if isinstance(reajusteola, list):
+            a_saber= True
+        #.
+        adicio= False
+        if isinstance(reajusteola, bool):
+            adicio= True
+        #.
+        if (a_saber == False) and (adicio == True):
+            coloco.ola_reajustada= reajusteola
+
+        cantidad= len(lista)
+        if cantidad == 0: # si es una 'list' y llega a estar vacia... reacomoda el contenido.
+            new_lista= [0]
+        else:
+            new_lista= lista
+
+        nueva_confg(new_lista)
     
