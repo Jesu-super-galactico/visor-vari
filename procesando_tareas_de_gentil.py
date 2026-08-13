@@ -6,23 +6,43 @@
 #   importaciones
 ################################
 
-#visor_vari.
-from visor_vari.mas_bajo_nivel.see import refer_0 # la refer estandar.
-from visor_vari.mas_bajo_nivel.datos import verifico
-from visor_vari.mas_bajo_nivel.datos import coloco # para el nombre de la ventana.
-from visor_vari.la_ventana import ver_registro
-import time
+en_prueba= False
+if en_prueba == False:
 
-if True: # todo el resto de refer_
-    from visor_vari.mas_bajo_nivel.see import refer_1
-    from visor_vari.mas_bajo_nivel.see import refer_2
-    from visor_vari.mas_bajo_nivel.see import refer_3
-    from visor_vari.mas_bajo_nivel.see import refer_4
-    from visor_vari.mas_bajo_nivel.see import refer_5
-    from visor_vari.mas_bajo_nivel.see import refer_6
-    from visor_vari.mas_bajo_nivel.see import refer_7
-    from visor_vari.mas_bajo_nivel.see import refer_8
-    from visor_vari.mas_bajo_nivel.see import refer_9
+    from visor_vari.mas_bajo_nivel.see import refer_0 # la refer estandar.
+    from visor_vari.mas_bajo_nivel.datos import verifico
+    from visor_vari.mas_bajo_nivel.datos import coloco # para el nombre de la ventana.
+    from visor_vari.la_ventana import ver_registro
+    import time
+
+    if True: # todo el resto de refer_
+        from visor_vari.mas_bajo_nivel.see import refer_1
+        from visor_vari.mas_bajo_nivel.see import refer_2
+        from visor_vari.mas_bajo_nivel.see import refer_3
+        from visor_vari.mas_bajo_nivel.see import refer_4
+        from visor_vari.mas_bajo_nivel.see import refer_5
+        from visor_vari.mas_bajo_nivel.see import refer_6
+        from visor_vari.mas_bajo_nivel.see import refer_7
+        from visor_vari.mas_bajo_nivel.see import refer_8
+        from visor_vari.mas_bajo_nivel.see import refer_9
+else:
+
+    from mas_bajo_nivel.see import refer_0 # la refer estandar.
+    from mas_bajo_nivel.datos import verifico
+    from mas_bajo_nivel.datos import coloco # para el nombre de la ventana.
+    from la_ventana import ver_registro
+    import time
+
+    if True: # todo el resto de refer_
+        from mas_bajo_nivel.see import refer_1
+        from mas_bajo_nivel.see import refer_2
+        from mas_bajo_nivel.see import refer_3
+        from mas_bajo_nivel.see import refer_4
+        from mas_bajo_nivel.see import refer_5
+        from mas_bajo_nivel.see import refer_6
+        from mas_bajo_nivel.see import refer_7
+        from mas_bajo_nivel.see import refer_8
+        from mas_bajo_nivel.see import refer_9
 
 "==============================="
 #   Estados y comprobaciones
@@ -76,7 +96,7 @@ def ejecutando_gentil_para_visualizar_variables(el_tipo_es_1= False):
     enemigo= verificacion_normal()
     if enemigo == False:
         ver_registro(refer_0, ventana)
-    
+        
     else:
         if el_tipo_es_1 == True: # para que solo trabaje con gentil()... vacio.
         
@@ -117,6 +137,8 @@ def ejecutando_gentil_para_visualizar_variables(el_tipo_es_1= False):
     else:
         if coloco.pausado == True:
             ventana.wait_window() # Espera hasta que la ventana se cierre
+        else:
+            time.sleep(0.1)
 
 "==============================="
 #   Entradas

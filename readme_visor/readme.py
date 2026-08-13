@@ -37,7 +37,7 @@ la funcion 'gentil' puede no recibir agumentos. \n\
 ''' Ejemplo de ejecución en su forma mas simple ''' \n\
     (no recibe atributos de entrada) \n\
 \n\
-from visor_vari import gentil \n\
+from visor_vari.viendo import gentil \n\
 from visor_vari.mas_bajo_nivel.see import refer_0 \n\
 \n\
 a= 10 \n\
@@ -76,17 +76,16 @@ Pero en realidad, es el programa como tal, el que se encuentra \n\
 realizando cambios, \n\
 los que usted... por supuesto, quiere ver con mayor detalle. \n\
 \n\
-Ademas... agregando posteriores un segundo... 'gentil()' \n\
+Ademas, agregando posteriores 'gentil()', un segundo... tercero... etc.\n\
 como en el ejemplo de arriba, \n\
 podrá ver esos cambios. \n\
 \n\
 En la forma simple de usar visor_vari, en la funcion 'gentil', \n\
 se toman dos argumentos: 1.numero y 2.pausado\n\
-estos dos argumentos son por defecto, cero (0) y True, respectivamente. \n\
-Pausado se podria poner en False, para que no se detenga la ejecucion, \n\
-pero eso sera en versiones posteriores de visor_vari. \n\
-por otro lado, numero= 0, si se recomienda usarlo con cero, ya que no se\n\
-considero otro valor para esta forma simple de visor_vari.\n\
+estos dos argumentos son por defecto, None y True, respectivamente. \n\
+Ahora, en esta version, usted podra usar pausado= False \n\
+por otro lado, numero= None, si se recomienda dejarlo tal cual esta, \n\
+ya que para este modo 'simple' tecnicamente no seria necesario usarlo. \n\
 \n\
 La funcion gentil como usted sabra \n\
 podra llamarla cuantas veces quiera.\n\
@@ -124,8 +123,9 @@ Evitando asi, apilar tanto codigo en su propio modulo. \n\
 \n\
 En el readme que se encuentra adjunto con este y que \n\
 es llamado readme_tipos \n\
-(import visor_vari.readme_visor.readme_tipos) \n\
-podra conocer con mas profundidad \n\
+(from visor_vari.readme_visor import readme_tipos) \n\
+podra conocer, \n\
+con mas profundidad, \n\
 las otras formas de usar visor_vari. \n\
 ")
 

@@ -7,7 +7,13 @@
 #   importaciones
 ################################
 
-from visor_vari.mas_bajo_nivel.datos import verifico
+en_prueba= False
+if en_prueba == False:
+    
+    from visor_vari.mas_bajo_nivel.datos import verifico
+else:
+
+    from mas_bajo_nivel.datos import verifico
 
 "==============================="
 

@@ -8,7 +8,14 @@
 "=============================================="
 
 import tkinter as tk
-from visor_vari.mas_bajo_nivel.datos import coloco
+
+en_prueba= False
+if en_prueba == False:
+    
+    from visor_vari.mas_bajo_nivel.datos import coloco
+else:
+
+    from mas_bajo_nivel.datos import coloco
 
 "=============================================="
 

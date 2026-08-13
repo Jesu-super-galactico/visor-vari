@@ -4,8 +4,8 @@ CONTENIDO:
 
 Punto 1.  - explicacion para 'encadena'.
 punto 2.  - explicacion para 'faseypulso'.
-add 1     - explicacion de nueva funcion 'guia'.
-add 2     - explicacion de nueva funcion 'borratodo'.
+add 1     - explicacion de la funcion 'guia'.
+add 2     - explicacion de la funcion 'borratodo'.
 
 
 ...
@@ -93,7 +93,7 @@ desde el pulso cero (0) si se reajusta con la funcion 'guia'.
 la explicasion de esta funcion (guia) aparece al final de esta documentacion,
 "valla a la parte de abajo".
 Si no se reajusta, con la funcion 'guia', empezara a contar desde uno (1) 
-esto ocurre asi, para mantener coherancia con la version anterior.
+esto ocurre asi, para mantener coherancia con las versiones anteriores.
 Tambien... quiero explicar... uno poco, las razones por lo que se creo el reajuste 
 para la 'ola':
 1. y es que, los 'gentil' pueden llegar a empezar desde cero (0), asi
@@ -114,13 +114,14 @@ sin importar su posicion en el script.
 
 La lista pretende actuar similar, que como ocurre, 
 en el modo 'encadena'.
-Pero puesto que aqui se esta tratando de pulsos u olas, entiendase como se quiera.
+Pero puesto que aqui se esta tratando de pulsos u olas.
 la lista de este modo (faseypulso) es una lista que contiene diccionarios, 
-cada diccionario tiene una clave/llave que es un numero (0, 1, 2...) y ese numero
+cada diccionario tiene una 'llave' que es un numero (0, 1, 2...) y ese numero
 hace referencia a una ola. la 0 hace referencia a la ola 0, la 1 hace referencia a la ola 1 
 y asi sucesivamente. {0: []}, {1: []}, {2: []}
-A su vez, cada uno de estos numeros/indices, tiene una lista interna, 
-que hace referencia a los 'gentil' que se quieren ejecutar para cada ola.
+A su vez, a cada uno de estos "numeros" le corresponde una lista, 
+que hace referencia a los 'gentil' que se quieren ejecutar,
+en esa ola.
 
 Por ejemplo, si se quieren ejecutar los 'gentil' que responden a la ola 0:
 {0: [del_gentil_0_en_primera_posicion, del_gentil_0_en_tercera_posicion]}
@@ -131,7 +132,7 @@ gentil(0) # este 'gentil' no se ejecutaria, porque su indice no aparece..
 gentil(0) # este 'gentil' se ejecutaria, porque su indice aparece.
 
 tenga mucho cuidado a la hora de emplear este modo (faseypulso)
-ya que dentro del modulo o script, pueden aparecer intercalados 'gentil' con
+ya que dentro del modulo o 'su script', pueden aparecer intercalados 'gentil' con
 diferentes numeros (que responden a diferentes olas).
 por lo que si no tiene cuidado se podria confundir.
 Ademas siempre, recuerde que cuando es _el_primer_pulso... gentil(0), 
@@ -143,10 +144,6 @@ faseypulso(False, listando_los_gentiles_que_quiero_ver, pausado=True)
 # ya en bucle.
 gentil(0) # ... y otros mas.
 ultimate() # para que se incremente el numero de ola o pulso.
-
-En esta version, de visor_vari (2.5) 
-se han hecho las funcionalidades de 'pausado', para cuando usted usa tkinter. 
-Sin embargo, cuando no es asi, no podra emplearlo para esta version.
 
 Ademas, tenga en cuenta que si la libreria identifica un modo...
 ya no se cambiara a otro metodo.
@@ -196,7 +193,7 @@ No necesariamente tendrian que aparecer en orden.
 ejemplo:
 
 lista_de_refers= [0, 1, 2]
-guia(tkin= tk, reajusteola= False, lista= lista_de_refers)
+guia(tkin= tk, reajusteola= True, lista= lista_de_refers)
 
 Ademas debo indicarle que: 
 podria ingresar exclusivamente tk, `guia(tk)` 
@@ -210,10 +207,12 @@ busca que los refers (las ventanas que muestran los valores) se abran
 en una subventana cuando se le pasa tk. 
 sin embargo, cuando a la libreria no se le pasa tk 
 procura abrir los valores, de refer, en una ventana principal.
+(excepto cuando falseypulso esta: bajada= True, pausado= False
+en tal caso, tambien estaria abriendo subventanas).
 
 
 
-Explicasion de la funcion borratodo (que es otra funcion que se ha agregado):
+Explicasion de la funcion borratodo:
 
 `borratodo` tambien tiene tres argumentos de entrada:
  
