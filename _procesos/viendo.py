@@ -7,19 +7,19 @@
 en_prueba= False
 if en_prueba == False:
 
-    from visor_vari.mas_bajo_nivel.datos import coloco
-    from visor_vari.procesando_tareas_de_gentil import proceden_de_sin_lista, proceden_de_con_lista
-    from visor_vari.procesando_en_hilos import proceden_de_sin_lista_hilo, proceden_de_con_lista_hilo
-    from visor_vari.mas_bajo_nivel.see import aborrar
-    from visor_vari.tratando_las_visualizaciones import nueva_confg
+    from visor_vari._mas_bajo_nivel.datos import coloco
+    from visor_vari._procesos.procesando_tareas_de_gentil import proceden_de_sin_lista, proceden_de_con_lista
+    from visor_vari._procesos.procesando_en_hilos import proceden_de_sin_lista_hilo, proceden_de_con_lista_hilo
+    from visor_vari._mas_bajo_nivel.see import aborrar
+    from visor_vari._procesos.tratando_las_visualizaciones import nueva_confg
     import time
 else:
 
-    from mas_bajo_nivel.datos import coloco
-    from procesando_tareas_de_gentil import proceden_de_sin_lista, proceden_de_con_lista
-    from procesando_en_hilos import proceden_de_sin_lista_hilo, proceden_de_con_lista_hilo
-    from mas_bajo_nivel.see import aborrar
-    from tratando_las_visualizaciones import nueva_confg
+    from _mas_bajo_nivel.datos import coloco
+    from _procesos.procesando_tareas_de_gentil import proceden_de_sin_lista, proceden_de_con_lista
+    from _procesos.procesando_en_hilos import proceden_de_sin_lista_hilo, proceden_de_con_lista_hilo
+    from _mas_bajo_nivel.see import aborrar
+    from _procesos.tratando_las_visualizaciones import nueva_confg
     import time
 
 "==============================="

@@ -12,10 +12,10 @@ import tkinter as tk
 en_prueba= False
 if en_prueba == False:
     
-    from visor_vari.mas_bajo_nivel.datos import coloco
+    from visor_vari._mas_bajo_nivel.datos import coloco
 else:
 
-    from mas_bajo_nivel.datos import coloco
+    from _mas_bajo_nivel.datos import coloco
 
 "=============================================="
 

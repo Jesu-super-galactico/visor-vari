@@ -1,131 +1,266 @@
 
-print("\
-\n\
-Para que pueda emplear la libreria visor_vari \n\
-usted deberá traer la clase 'Super_tabla' del \n\
-modulo 'see' que se encuentra en \n\
-la ruta: visor_vari.mas_bajo_nivel \n\
-o en su defecto traerse el objeto 'refer_0' de ese \n\
-modulo, que es un objeto ya formado alli. \n\
-\n\
-Con ese objeto usted podra guardar su variable \n\
-en cualquier instancia. A usted, la libreria le \n\
-proporciona (81) instancias, de refer_0, para guardar diferentes \n\
-valores. \n\
-Comprendida desde 'self.selda_0' \n\
-hasta 'self.selda_80' \n\
-Sirvase usar la que usted prefiera. \n\
-\n\
-Cuando quiera ver sus datos recogidos \n\
-(en cierto punto de la ejecucion de su programa) \n\
-deberá hacer la llamada a la funcion 'gentil' \n\
-que se encuentra en el modulo 'viendo' \n\
-del mismo paquete 'visor_vari'. \n\
-Por supuesto, tambien deberá hacer \n\
-esta importacion antes, en su propio modulo. \n\
-\n\
-visor vari tiene tres formas de trabajar \n\
-de las cuales dos necesitan una predefinicion \n\
-llamadas 'en_cadena' y 'faseypulso' \n\
-esta ultima faseypulso requiere del empleo del metodo 'ultimate'\n\
-despues de todos los gentiles.\n\
-Pero, los detalles de estas formas de trabajo se describen en el readme_tipos\n\
-\n\
-La primera forma de trabajo (la simple) en \n\
-la funcion 'gentil' puede no recibir agumentos. \n\
-\n\
-''' Ejemplo de ejecución en su forma mas simple ''' \n\
-    (no recibe atributos de entrada) \n\
-\n\
-from visor_vari.viendo import gentil \n\
-from visor_vari.mas_bajo_nivel.see import refer_0 \n\
-\n\
-a= 10 \n\
-b= 15 \n\
-\n\
-refer_0.selda_0= a \n\
-refer_0.selda_1= b \n\
-\n\
-gentil() \n\
-\n\
-refer_0.selda_0= 43   # Se modifica el valor internamente \n\
-                    # quizas al presionarse un boton. \n\
-\n\
-c= 17               # Se hacen presente otros valores \n\
-refer_0.selda_41= c   # y... tambien se quieren ver. \n\
-\n\
-gentil() \n\
-\n\
-Como podra darse cuenta 'visor_vari' aqui, detecta, \n\
-los cambios que puedan darse en 'self.selda_0' \n\
-que es, en el programa, la variable 'a'. \n\
-(En la linea donde se le asigna el valor 43 a esa variable) \n\
-estamos dando a entender \n\
-que la variable podria modificarse (internamente). \n\
-\n\
-Por ejemplo: \n\
-En el trayecto de ejecucion del programa \n\
-se ejecuto una funcion que la modifico (reseteo la variable) \n\
-al haber entrado a una seccion que hace tal cosa. \n\
-O porque se encuentra usando tkinter y tk quedo \n\
-esperando una entrada de valor, \n\
-que usted posteriormente ingreso. \n\
-Yo coloco la linea: 'refer.selda_0= 43' en este codigo de ejemplo, \n\
-solo para indicar el cambio. \n\
-Pero en realidad, es el programa como tal, el que se encuentra \n\
-realizando cambios, \n\
-los que usted... por supuesto, quiere ver con mayor detalle. \n\
-\n\
-Ademas, agregando posteriores 'gentil()', un segundo... tercero... etc.\n\
-como en el ejemplo de arriba, \n\
-podrá ver esos cambios. \n\
-\n\
-En la forma simple de usar visor_vari, en la funcion 'gentil', \n\
-se toman dos argumentos: 1.numero y 2.pausado\n\
-estos dos argumentos son por defecto, None y True, respectivamente. \n\
-Ahora, en esta version, usted podra usar pausado= False \n\
-por otro lado, numero= None, si se recomienda dejarlo tal cual esta, \n\
-ya que para este modo 'simple' tecnicamente no seria necesario usarlo. \n\
-\n\
-La funcion gentil como usted sabra \n\
-podra llamarla cuantas veces quiera.\n\
-\n\
-Para efectos practicos... donde necesite \n\
-hacer revicion de alguna variable, \n\
-en cierto punto de su programa, \n\
-debera colocar 'gentil()'. \n\
-Pero antes de eso, \n\
-cree y llame a una funcion \n\
-(colocandole el nombre que usted mismo quiera) \n\
-Y en ella, haga las \n\
-actualizaciones de los objetos/imagenes refer_x. \n\
-Por ejemplo, las de: \n\
-selda_0= 'a' \n\
-selda_1= 'b' \n\
-selda_41= 'c' \n\
-... \n\
-en este caso, \n\
-\n\
-Con esto garantizara \n\
-que se le este mostrando, \n\
-la configuracion de las variables, \n\
-que usted realmente quiere ver, \n\
-para este momento de la ejecucion. \n\
-\n\
-Pero trabajar asi (con viso_vari) le permite a usted, tambien, \n\
-que esta misma funcion, la pueda usar en otros puntos... \n\
-sin tener que indicar nuevamente, una por una, las variables \n\
-que se quieran ver. \n\
-Inclusive hasta podria, de ser posible, \n\
-crear un modulo aparte donde se encuentren \n\
-todas estas funciones. \n\
-Evitando asi, apilar tanto codigo en su propio modulo. \n\
-\n\
-En el readme que se encuentra adjunto con este y que \n\
-es llamado readme_tipos \n\
-(from visor_vari.readme_visor import readme_tipos) \n\
-podra conocer, \n\
-con mas profundidad, \n\
-las otras formas de usar visor_vari. \n\
-")
+texto_esplicativo= """
+Esta librería "visor_vari" le permite observar un grupo de variables
+de su código (las variables que usted quiera ver)
+
+Tenga en cuenta, que la librería le proporciona (81) variables 
+para que usted pueda guardar diferentes valores. 
+Existen, además, varios objetos para que usted pueda realizar esto. 
+Pero por defecto, la librería, pone a su disposición solo uno 
+llamado 'refer_0'.
+Este objeto lo puede encontrar en la ruta 'visor_vari.ayudandome.con_.py' 
+La clase que forma estos objetos la puede 
+encontrar en el módulo llamado 'see' que se encuentra
+en la ruta 'visor_vari._mas_bajo_nivel'.
+
+Las posibles variables guardadas están comprendidas desde 'self.selda_0'
+hasta 'self.selda_80'. Sírvase usar la que usted prefiera.
+
+Cuando quiera ver sus datos recogidos
+(en cierto punto de la ejecución de su programa)
+deberá hacer la llamada a la función 'gentil'
+que se encuentra también en la ruta 'visor_vari.ayudandome.con_.py'
+Por supuesto que deberá hacer, la importación de 'gentil' antes,
+en su propio modulo.
+
+visor_vari tiene tres formas de trabajar
+de las cuales dos necesitan una predefinición
+llamadas 'en_cadena' y 'faseypulso'
+esta última, faseypulso requiere del empleo del método 'ultimate'
+después de todos los gentiles.
+Pero, los detalles de estas formas de trabajo se describen en el readme_tipos
+
+En la primera forma de trabajar de la librería (la simple)
+la función 'gentil', 
+puede no recibir argumentos.
+
+''' Ejemplo de ejecución en su forma más simple
+    ('gentil' no recibe argumentos de entrada) '''
+
+from visor_vari.ayudandome.con_ import gentil
+from visor_vari.ayudandome.con_ import refer_0
+
+a= 10
+b= 15
+
+refer_0.selda_0= a
+refer_0.selda_1= b
+
+gentil()
+
+refer_0.selda_0= 43     # Se modifica el valor internamente
+                        # quizás al presionarse un botón.
+
+c= 17                   # Se hacen presentes otros valores
+refer_0.selda_41= c     # y... también se quieren ver.
+
+gentil()
+
+Como podrá darse cuenta 'visor_vari' aqui, detecta,
+los cambios que puedan darse en 'self.selda_0'
+que es, en el programa, la variable 'a'.
+(En la línea donde se le asigna el valor 43 a esa variable)
+estamos dando a entender
+que la variable podría modificarse (internamente).
+
+Por ejemplo:
+En el trayecto de ejecución del programa
+se ejecutó una función que la modifico (reseteo la variable)
+al haber entrado a una sección que hace tal cosa.
+O porque se encuentra usando tkinter y tk quedo
+esperando una entrada de valor,
+que usted posteriormente ingreso.
+Yo coloco la línea: 'refer.selda_0= 43' en este código de ejemplo,
+solo para indicar el cambio.
+Pero en realidad, es el programa como tal, el que se encuentra
+realizando cambios,
+los que usted... por supuesto, quiere ver con mayor detalle.
+
+Además, agregando posteriores 'gentil()', un segundo... tercero... etc.
+como en el ejemplo de arriba,
+podrá ver esos cambios.
+
+En la forma simple de usar visor_vari, en la función 'gentil',
+se toman dos argumentos: 1. número y 2. pausado
+estos dos argumentos son por defecto, None y True, respectivamente.
+En esta versión, usted podrá usar pausado= False
+por otro lado, numero= None, y se recomienda dejarlo así,
+ya que para este modo 'simple' técnicamente no sería necesario usarlo.
+
+La función 'gentil' como usted sabrá
+podrá llamarla cuantas veces quiera,
+donde necesite hacer revisión de alguna variable en su código.
+Solo necesita colocar 'gentil()'.
+
+Pero para efectos prácticos... 
+puede optar por crear y llamar a una función
+(colocándole el nombre que usted mismo quiera)
+Y en ella, haga las actualizaciones de los objetos/imágenes refer_x.
+Por ejemplo, las de:
+selda_0= 'a'
+selda_1= 'b'
+selda_41= 'c'
+...
+como en el caso del ejemplo.
+
+Después, puede utilizar estos dos comandos
+(llamar a la función y posteriormente utilizar 'gentil').
+    
+Con esto garantizara
+que se le esté mostrando,
+la configuración de las variables,
+que usted realmente quiere ver,
+para este momento de la ejecución.
+
+Pero trabajar así (con viso_vari) le permite a usted, también,
+que esta misma función, la pueda usar en varios puntos,
+sin tener que indicar nuevamente, una por una, las variables
+que se quieran ver.
+Dejando su código mucho más organizado.
+
+Inclusive, hasta podría usted de ser posible,
+crear esta función, en un módulo aparte.
+Evitando así, apilar tanto código en su propio modulo.
+
+También podría en este otro modulo, crear diferentes 
+funciones, según las variables que desee ver 
+para ese momento.
+
+Lea el readme que se encuentra adjunto con este
+(y que es llamado 'readme_tipos')
+con el, podrá conocer con más profundidad,
+las otras formas de usar visor_vari.
+Su ruta exacta es:
+
+from visor_vari.readme_visor import readme_tipos
+
+    (english translation)
+
+This "visor_vari" library allows you to view a group of variables
+in your code (the variables you want to see).
+
+Note that the library provides 81 variables
+for you to store different values.
+There are also several objects available to do this.
+But by default, the library only provides one
+called 'refer_0'.
+This object can be found in the path 'visor_vari.ayudandome.con_.py'.
+The class that creates these objects can be found
+in the module called 'see', located
+in the path 'visor_vari._mas_bajo_nivel'.
+
+The possible stored variables range from 'self.selda_0'
+to 'self.selda_80'. Please use whichever one you prefer.
+
+When you want to view your collected data (at a certain point 
+in your program's execution), you will need to call the 'gentil' function, 
+which is also located in the 'visor_vari.ayudandome.con_.py' directory. 
+Of course, you will need to import 'gentil' beforehand,
+into its own module.
+
+visor_vari has three ways of working, two of which require a predefinition: 
+'en_cadena' and 'faseypulso'. The latter, 'faseypulso', 
+requires the use of the 'ultimate' method after all the 'gentil' functions.
+However, the details of these working methods are described in the readme_types file.
+
+In the library's first (simple) working method, 
+the 'gentil' function may not receive any arguments.
+
+''' Example execution in its simplest form
+'gentil' does not receive any input arguments' '''
+
+from visor_vari.ayudandome.con_ import gentil
+from visor_vari.ayudandome.con_ import refer_0
+
+a= 10
+b= 15
+
+refer_0.selda_0= a
+refer_0.selda_1= b
+
+gentil()
+
+refer_0.selda_0= 43     # The value is modified internally
+                        # perhaps by pressing a button.
+
+c= 17                   # Other values become present
+refer_0.selda_41= c     # And... they also want to see each other.
+
+gentil()
+
+As you can see, 'visor_vari' here detects
+changes that may occur in 'self.selda_0', which is the variable 'a' in the program.
+(In the line where the value 43 is assigned to that variable)
+we are implying
+that the variable could be modified (internally).
+
+For example:
+During the program's execution,
+a function was executed that modified it (reset the variable)
+after entering a section that does so.
+Or because it is using tkinter and tk is
+waiting for an input value,
+which you subsequently entered.
+I include the line: 'refer.selda_0 = 43' in this example code,
+only to indicate the change.
+But in reality, it is the program itself that is
+making changes,
+which you... of course, want to see in more detail.
+
+Furthermore, by adding subsequent 'gentil()' calls—a second, a third, and so on—
+as in the example above,
+you will be able to see these changes.
+
+In the simple way of using visor_vari, the 'gentil' function takes two arguments: 1. number and 2. paused.
+These two arguments are, by default, None and True, respectively.
+In this version, you can use paused = False.
+On the other hand, number = None, and it is recommended to leave it as is,
+since for this 'simple' mode, it wouldn't technically be necessary to use it.
+
+The 'gentil' function, as you know,
+can be called as many times as you want
+wherever you need to check a variable in your code.
+
+You just need to include 'gentil()'.
+But for practical purposes...
+you can choose to create and call a function
+(giving it any name you like)
+and in that function, perform the updates for the refer_x objects/images.
+For example, the values in:
+selda_0 = 'a'
+selda_1 = 'b'
+selda_41 = 'c'
+... as in the example.
+
+Then, you can use these two commands:
+(call the function and then use 'gentle').
+
+This will ensure that you are shown
+the configuration of the variables
+that you actually want to see
+at this point in execution.
+
+But working this way (with viso_vari) also allows you to
+use this same function at various points
+without having to specify, one by one, the variables
+that you want to see.
+Leaving your code much more organized.
+
+You could even, if possible,
+create this function in a separate module.
+Thus avoiding piling so much code in your own module.
+
+You could also, in this other module, create different
+functions, depending on the variables you want to see
+at that moment.
+
+Read the attached readme file (named 'readme_tipos')
+It will give you a more in-depth look at
+other ways to use visor_vari
+Its exact path is:
+
+from visor_vari.readme_visor import readme_tipos
+"""
+
+print(texto_esplicativo)
 

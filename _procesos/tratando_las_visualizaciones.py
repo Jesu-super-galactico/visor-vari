@@ -10,15 +10,31 @@
 en_prueba= False
 if en_prueba == False:
     
-    from visor_vari.mas_bajo_nivel.datos import verifico
+    from visor_vari._mas_bajo_nivel.datos import verifico
 else:
 
-    from mas_bajo_nivel.datos import verifico
+    from _mas_bajo_nivel.datos import verifico
 
 "==============================="
 
+def desactivar_referencias():
+    "esta funcion se encarga de desactivar todas las referencias."
+    
+    verifico.estado_refer_0= False
+    verifico.estado_refer_1= False
+    verifico.estado_refer_2= False
+    verifico.estado_refer_3= False
+    verifico.estado_refer_4= False
+    verifico.estado_refer_5= False
+    verifico.estado_refer_6= False
+    verifico.estado_refer_7= False
+    verifico.estado_refer_8= False
+    verifico.estado_refer_9= False
+
 def nueva_confg(lista_de_configuracion):
     "esta funcion se encarga de configurar las visualizaciones, segun la activacion de los refer_x."
+    
+    desactivar_referencias()
     
     si= True
     
